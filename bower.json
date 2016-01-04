@@ -1,0 +1,36 @@
+{
+  "name": "polymer-color-picker",
+  "version": "1.0.0",
+  "description": "A Polymer color picker element using all the Material Design colours",
+  "authors": [
+    "The Polymer Authors"
+  ],
+  "keywords": [
+    "web-components",
+    "polymer",
+    "color",
+    "picker"
+  ],
+  "main": [
+    "polymer-color-picker.html"
+  ],
+  "ignore": [],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/notwaldorf/polymer-color-picker.git"
+  },
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/notwaldorf/polymer-color-picker",
+  "ignore": [],
+  "dependencies": {
+    "iron-icons": "PolymerElements/iron-icons#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "paper-icon-button": "PolymerElements/paper-icon-button#^1.0.0",
+    "paper-menu-button": "PolymerElements/paper-menu-button#^1.0.0",
+    "polymer": "Polymer/polymer#^1.0.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.2",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  }
+}

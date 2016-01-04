@@ -1,0 +1,305 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-menu-button/paper-menu-button.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../iron-icons/editor-icons.html">
+
+<!--
+This is a very simple Polymer color-picker that will allow you to choose one
+of the Material Design colours.
+
+@element polymer-color-picker
+@demo demo/index.html
+-->
+
+<dom-module id="polymer-color-picker">
+  <template>
+    <style>
+      .box {
+        background: white;
+        font-size: 0;
+      }
+
+      .column {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+      }
+
+      .color {
+        width: 20px;
+        height: 20px;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+      }
+    </style>
+
+    <paper-menu-button>
+      <paper-icon-button
+          id="iconButton"
+          icon="editor:format-color-fill"
+          class="dropdown-trigger" alt="color picker">
+      </paper-icon-button>
+      <div class="dropdown-content box" on-tap="_colorSelected">
+        <div class="column">
+          <div class="color" style="background:#ffebee;"></div>
+          <div class="color" style="background:#ffcdd2;"></div>
+          <div class="color" style="background:#ef9a9a;"></div>
+          <div class="color" style="background:#e57373;"></div>
+          <div class="color" style="background:#ef5350;"></div>
+          <div class="color" style="background:#f44336;"></div>
+          <div class="color" style="background:#e53935;"></div>
+          <div class="color" style="background:#d32f2f;"></div>
+          <div class="color" style="background:#c62828;"></div>
+          <div class="color" style="background:#b71c1c;"></div>
+        </div>
+
+        <div class="column">
+          <div class="color" style="background:#fce4ec;"></div>
+          <div class="color" style="background:#f8bbd0;"></div>
+          <div class="color" style="background:#f48fb1;"></div>
+          <div class="color" style="background:#f06292;"></div>
+          <div class="color" style="background:#ec407a;"></div>
+          <div class="color" style="background:#e91e63;"></div>
+          <div class="color" style="background:#d81b60;"></div>
+          <div class="color" style="background:#c2185b;"></div>
+          <div class="color" style="background:#ad1457;"></div>
+          <div class="color" style="background:#880e4f;"></div>
+        </div>
+
+        <div class="column">
+          <div class="color" style="background:#f3e5f5;"></div>
+          <div class="color" style="background:#e1bee7;"></div>
+          <div class="color" style="background:#ce93d8;"></div>
+          <div class="color" style="background:#ba68c8;"></div>
+          <div class="color" style="background:#ab47bc;"></div>
+          <div class="color" style="background:#9c27b0;"></div>
+          <div class="color" style="background:#8e24aa;"></div>
+          <div class="color" style="background:#7b1fa2;"></div>
+          <div class="color" style="background:#6a1b9a;"></div>
+          <div class="color" style="background:#4a148c;"></div>
+        </div>
+
+        <div class="column">
+          <div class="color" style="background:#ede7f6;"></div>
+          <div class="color" style="background:#d1c4e9;"></div>
+          <div class="color" style="background:#b39ddb;"></div>
+          <div class="color" style="background:#9575cd;"></div>
+          <div class="color" style="background:#7e57c2;"></div>
+          <div class="color" style="background:#673ab7;"></div>
+          <div class="color" style="background:#5e35b1;"></div>
+          <div class="color" style="background:#512da8;"></div>
+          <div class="color" style="background:#4527a0;"></div>
+          <div class="color" style="background:#311b92;"></div>
+        </div>
+        <div class="column">
+          <div class="color" style="background:#e8eaf6;"></div>
+          <div class="color" style="background:#c5cae9;"></div>
+          <div class="color" style="background:#9fa8da;"></div>
+          <div class="color" style="background:#7986cb;"></div>
+          <div class="color" style="background:#5c6bc0;"></div>
+          <div class="color" style="background:#3f51b5;"></div>
+          <div class="color" style="background:#3949ab;"></div>
+          <div class="color" style="background:#303f9f;"></div>
+          <div class="color" style="background:#283593;"></div>
+          <div class="color" style="background:#1a237e;"></div>
+        </div>
+        <div class="column">
+          <div class="color" style="background:#e3f2fd;"></div>
+          <div class="color" style="background:#bbdefb;"></div>
+          <div class="color" style="background:#90caf9;"></div>
+          <div class="color" style="background:#64b5f6;"></div>
+          <div class="color" style="background:#42a5f5;"></div>
+          <div class="color" style="background:#2196f3;"></div>
+          <div class="color" style="background:#1e88e5;"></div>
+          <div class="color" style="background:#1976d2;"></div>
+          <div class="color" style="background:#1565c0;"></div>
+          <div class="color" style="background:#0d47a1;"></div>
+        </div>
+        <div class="column">
+          <div class="color" style="background:#e1f5fe;"></div>
+          <div class="color" style="background:#b3e5fc;"></div>
+          <div class="color" style="background:#81d4fa;"></div>
+          <div class="color" style="background:#4fc3f7;"></div>
+          <div class="color" style="background:#29b6f6;"></div>
+          <div class="color" style="background:#03a9f4;"></div>
+          <div class="color" style="background:#039be5;"></div>
+          <div class="color" style="background:#0288d1;"></div>
+          <div class="color" style="background:#0277bd;"></div>
+          <div class="color" style="background:#01579b;"></div>
+        </div>
+        <div class="column">
+          <div class="color" style="background:#e0f7fa;"></div>
+          <div class="color" style="background:#b2ebf2;"></div>
+          <div class="color" style="background:#80deea;"></div>
+          <div class="color" style="background:#4dd0e1;"></div>
+          <div class="color" style="background:#26c6da;"></div>
+          <div class="color" style="background:#00bcd4;"></div>
+          <div class="color" style="background:#00acc1;"></div>
+          <div class="color" style="background:#0097a7;"></div>
+          <div class="color" style="background:#00838f;"></div>
+          <div class="color" style="background:#006064;"></div>
+        </div>
+        <div class="column">
+          <div class="color" style="background:#e0f2f1;"></div>
+          <div class="color" style="background:#b2dfdb;"></div>
+          <div class="color" style="background:#80cbc4;"></div>
+          <div class="color" style="background:#4db6ac;"></div>
+          <div class="color" style="background:#26a69a;"></div>
+          <div class="color" style="background:#009688;"></div>
+          <div class="color" style="background:#00897b;"></div>
+          <div class="color" style="background:#00796b;"></div>
+          <div class="color" style="background:#00695c;"></div>
+          <div class="color" style="background:#004d40;"></div>
+        </div>
+        <div class="column">
+          <div class="color" style="background:#e8f5e9;"></div>
+          <div class="color" style="background:#c8e6c9;"></div>
+          <div class="color" style="background:#a5d6a7;"></div>
+          <div class="color" style="background:#81c784;"></div>
+          <div class="color" style="background:#66bb6a;"></div>
+          <div class="color" style="background:#4caf50;"></div>
+          <div class="color" style="background:#43a047;"></div>
+          <div class="color" style="background:#388e3c;"></div>
+          <div class="color" style="background:#2e7d32;"></div>
+          <div class="color" style="background:#1b5e20;"></div>
+        </div>
+        <div class="column">
+          <div class="color" style="background:#f1f8e9;"></div>
+          <div class="color" style="background:#dcedc8;"></div>
+          <div class="color" style="background:#c5e1a5;"></div>
+          <div class="color" style="background:#aed581;"></div>
+          <div class="color" style="background:#9ccc65;"></div>
+          <div class="color" style="background:#8bc34a;"></div>
+          <div class="color" style="background:#7cb342;"></div>
+          <div class="color" style="background:#689f38;"></div>
+          <div class="color" style="background:#558b2f;"></div>
+          <div class="color" style="background:#33691e;"></div>
+        </div>
+        <div class="column">
+          <div class="color" style="background:#f9fbe7;"></div>
+          <div class="color" style="background:#f0f4c3;"></div>
+          <div class="color" style="background:#e6ee9c;"></div>
+          <div class="color" style="background:#dce775;"></div>
+          <div class="color" style="background:#d4e157;"></div>
+          <div class="color" style="background:#cddc39;"></div>
+          <div class="color" style="background:#c0ca33;"></div>
+          <div class="color" style="background:#afb42b;"></div>
+          <div class="color" style="background:#9e9d24;"></div>
+          <div class="color" style="background:#827717;"></div>
+        </div>
+        <div class="column">
+          <div class="color" style="background:#fffde7;"></div>
+          <div class="color" style="background:#fff9c4;"></div>
+          <div class="color" style="background:#fff59d;"></div>
+          <div class="color" style="background:#fff176;"></div>
+          <div class="color" style="background:#ffee58;"></div>
+          <div class="color" style="background:#ffeb3b;"></div>
+          <div class="color" style="background:#fdd835;"></div>
+          <div class="color" style="background:#fbc02d;"></div>
+          <div class="color" style="background:#f9a825;"></div>
+          <div class="color" style="background:#f57f17;"></div>
+        </div>
+        <div class="column">
+          <div class="color" style="background:#fff8e1;"></div>
+          <div class="color" style="background:#ffecb3;"></div>
+          <div class="color" style="background:#ffe082;"></div>
+          <div class="color" style="background:#ffd54f;"></div>
+          <div class="color" style="background:#ffca28;"></div>
+          <div class="color" style="background:#ffc107;"></div>
+          <div class="color" style="background:#ffb300;"></div>
+          <div class="color" style="background:#ffa000;"></div>
+          <div class="color" style="background:#ff8f00;"></div>
+          <div class="color" style="background:#ff6f00;"></div>
+        </div>
+        <div class="column">
+          <div class="color" style="background:#fff3e0;"></div>
+          <div class="color" style="background:#ffe0b2;"></div>
+          <div class="color" style="background:#ffcc80;"></div>
+          <div class="color" style="background:#ffb74d;"></div>
+          <div class="color" style="background:#ffa726;"></div>
+          <div class="color" style="background:#ff9800;"></div>
+          <div class="color" style="background:#fb8c00;"></div>
+          <div class="color" style="background:#f57c00;"></div>
+          <div class="color" style="background:#ef6c00;"></div>
+          <div class="color" style="background:#e65100;"></div>
+        </div>
+        <div class="column">
+          <div class="color" style="background:#fbe9e7;"></div>
+          <div class="color" style="background:#ffccbc;"></div>
+          <div class="color" style="background:#ffab91;"></div>
+          <div class="color" style="background:#ff8a65;"></div>
+          <div class="color" style="background:#ff7043;"></div>
+          <div class="color" style="background:#ff5722;"></div>
+          <div class="color" style="background:#f4511e;"></div>
+          <div class="color" style="background:#e64a19;"></div>
+          <div class="color" style="background:#d84315;"></div>
+          <div class="color" style="background:#bf360c;"></div>
+        </div>
+        <div class="column">
+          <div class="color" style="background:#efebe9;"></div>
+          <div class="color" style="background:#d7ccc8;"></div>
+          <div class="color" style="background:#bcaaa4;"></div>
+          <div class="color" style="background:#a1887f;"></div>
+          <div class="color" style="background:#8d6e63;"></div>
+          <div class="color" style="background:#795548;"></div>
+          <div class="color" style="background:#6d4c41;"></div>
+          <div class="color" style="background:#5d4037;"></div>
+          <div class="color" style="background:#4e342e;"></div>
+          <div class="color" style="background:#3e2723;"></div>
+        </div>
+        <div class="column">
+          <div class="color" style="background:#fafafa;"></div>
+          <div class="color" style="background:#f5f5f5;"></div>
+          <div class="color" style="background:#eeeeee;"></div>
+          <div class="color" style="background:#e0e0e0;"></div>
+          <div class="color" style="background:#bdbdbd;"></div>
+          <div class="color" style="background:#9e9e9e;"></div>
+          <div class="color" style="background:#757575;"></div>
+          <div class="color" style="background:#616161;"></div>
+          <div class="color" style="background:#424242;"></div>
+          <div class="color" style="background:#212121;"></div>
+        </div>
+      </div>
+    </paper-menu-button>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'polymer-color-picker',
+
+      /**
+       * Fired when a color has been selected
+       *
+       * @event color-picker-selected
+       */
+
+      properties: {
+        /**
+         * The selected color
+         */
+        color: {
+          type: String
+        }
+      },
+
+      _colorSelected: function(event) {
+        this.color = event.target.style.backgroundColor;
+        this.fire('color-picker-selected', {color: this.color});
+        this.$.iconButton.style.color = this.color;
+      }
+    });
+  </script>
+
+</dom-module>
