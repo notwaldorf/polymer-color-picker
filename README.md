@@ -9,3 +9,5 @@ Example:
 <polymer-color-picker></polymer-color-picker>
 <polymer-color-picker color="{{selectedColor}}"></polymer-color-picker>
 ```
+
+![color picker demo](https://cloud.githubusercontent.com/assets/1369170/12102286/accc1c00-b2ee-11e5-8d67-b7758ba9e1f3.gif)
