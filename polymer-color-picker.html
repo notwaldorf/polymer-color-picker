@@ -23,6 +23,12 @@ Example:
 
     <polymer-color-picker color="{{selectedColor}}"></polymer-color-picker>
 
+You can configure the color palette being used using the `colorList` array and
+the `columnCount` property, which specifies how many "generic" colours (i.e. columns
+in the picker) you want to display.
+
+    <polymer-color-picker column-count=5 color-list='["#65a5f2", "#83be54", "#f0d551", "#e5943c", "#a96ddb", ]'></polymer-color-picker>
+
 ### Styling
 
 The following custom properties and mixins are available for styling:
