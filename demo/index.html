@@ -25,10 +25,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </style>
   <body unresolved>
     <div class="vertical-section-container centered">
-      <h3>A color-picker of all the Material Design colours</h3>
+      <h3>A color picker of all the Material Design colours</h3>
       <demo-snippet class="centered-demo">
         <template>
           <polymer-color-picker></polymer-color-picker>
+          <polymer-color-picker color="#E91E63"></polymer-color-picker>
+        </template>
+      </demo-snippet>
+
+      <h3>The picker can be styles using custom properties</h3>
+      <demo-snippet class="centered-demo">
+        <template>
+          <style is="custom-style">
+            polymer-color-picker.fancy {
+              --polymer-color-picker-color-size: 10px;
+              --polymer-color-picker-icon-size: 60px;
+            }
+          </style>
+          <polymer-color-picker class="fancy"></polymer-color-picker>
         </template>
       </demo-snippet>
     </div>
