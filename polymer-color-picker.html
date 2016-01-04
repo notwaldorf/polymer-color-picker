@@ -15,7 +15,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <!--
 This is a very simple Polymer color-picker that will allow you to choose one
-of the Material Design colours.
+of the Material Design colors.
 
 Example:
 
@@ -41,28 +41,24 @@ Custom property | Description | Default
   <template>
     <style>
       .box {
-        background: white;
         font-size: 0;
-      }
-
-      .column {
-        display: inline-block;
-        margin: 0;
-        padding: 0;
+        overflow: hidden;
       }
 
       .color {
         width: var(--polymer-color-picker-color-size, 20px);
         height: var(--polymer-color-picker-color-size, 20px);
+        display: inline-block;
         padding: 0;
         margin: 0;
         cursor: pointer;
       }
 
-      .color:hover {
+      /* Transforms and columnCounts are borked in Chrome atm */
+      /*.color:hover {
+        background: currentColor;
         transform: scale(1.3, 1.3);
-        -webkit-transform: scale(1.3, 1.3);
-      }
+      }*/
 
       paper-icon-button {
         width: var(--polymer-color-picker-icon-size, 40px);
@@ -77,226 +73,10 @@ Custom property | Description | Default
           icon="editor:format-color-fill"
           class="dropdown-trigger" alt="color picker">
       </paper-icon-button>
-      <div class="dropdown-content box" on-tap="_onTap">
-        <div class="column">
-          <div class="color" style="background:#ffebee;"></div>
-          <div class="color" style="background:#ffcdd2;"></div>
-          <div class="color" style="background:#ef9a9a;"></div>
-          <div class="color" style="background:#e57373;"></div>
-          <div class="color" style="background:#ef5350;"></div>
-          <div class="color" style="background:#f44336;"></div>
-          <div class="color" style="background:#e53935;"></div>
-          <div class="color" style="background:#d32f2f;"></div>
-          <div class="color" style="background:#c62828;"></div>
-          <div class="color" style="background:#b71c1c;"></div>
-        </div>
-
-        <div class="column">
-          <div class="color" style="background:#fce4ec;"></div>
-          <div class="color" style="background:#f8bbd0;"></div>
-          <div class="color" style="background:#f48fb1;"></div>
-          <div class="color" style="background:#f06292;"></div>
-          <div class="color" style="background:#ec407a;"></div>
-          <div class="color" style="background:#e91e63;"></div>
-          <div class="color" style="background:#d81b60;"></div>
-          <div class="color" style="background:#c2185b;"></div>
-          <div class="color" style="background:#ad1457;"></div>
-          <div class="color" style="background:#880e4f;"></div>
-        </div>
-
-        <div class="column">
-          <div class="color" style="background:#f3e5f5;"></div>
-          <div class="color" style="background:#e1bee7;"></div>
-          <div class="color" style="background:#ce93d8;"></div>
-          <div class="color" style="background:#ba68c8;"></div>
-          <div class="color" style="background:#ab47bc;"></div>
-          <div class="color" style="background:#9c27b0;"></div>
-          <div class="color" style="background:#8e24aa;"></div>
-          <div class="color" style="background:#7b1fa2;"></div>
-          <div class="color" style="background:#6a1b9a;"></div>
-          <div class="color" style="background:#4a148c;"></div>
-        </div>
-
-        <div class="column">
-          <div class="color" style="background:#ede7f6;"></div>
-          <div class="color" style="background:#d1c4e9;"></div>
-          <div class="color" style="background:#b39ddb;"></div>
-          <div class="color" style="background:#9575cd;"></div>
-          <div class="color" style="background:#7e57c2;"></div>
-          <div class="color" style="background:#673ab7;"></div>
-          <div class="color" style="background:#5e35b1;"></div>
-          <div class="color" style="background:#512da8;"></div>
-          <div class="color" style="background:#4527a0;"></div>
-          <div class="color" style="background:#311b92;"></div>
-        </div>
-        <div class="column">
-          <div class="color" style="background:#e8eaf6;"></div>
-          <div class="color" style="background:#c5cae9;"></div>
-          <div class="color" style="background:#9fa8da;"></div>
-          <div class="color" style="background:#7986cb;"></div>
-          <div class="color" style="background:#5c6bc0;"></div>
-          <div class="color" style="background:#3f51b5;"></div>
-          <div class="color" style="background:#3949ab;"></div>
-          <div class="color" style="background:#303f9f;"></div>
-          <div class="color" style="background:#283593;"></div>
-          <div class="color" style="background:#1a237e;"></div>
-        </div>
-        <div class="column">
-          <div class="color" style="background:#e3f2fd;"></div>
-          <div class="color" style="background:#bbdefb;"></div>
-          <div class="color" style="background:#90caf9;"></div>
-          <div class="color" style="background:#64b5f6;"></div>
-          <div class="color" style="background:#42a5f5;"></div>
-          <div class="color" style="background:#2196f3;"></div>
-          <div class="color" style="background:#1e88e5;"></div>
-          <div class="color" style="background:#1976d2;"></div>
-          <div class="color" style="background:#1565c0;"></div>
-          <div class="color" style="background:#0d47a1;"></div>
-        </div>
-        <div class="column">
-          <div class="color" style="background:#e1f5fe;"></div>
-          <div class="color" style="background:#b3e5fc;"></div>
-          <div class="color" style="background:#81d4fa;"></div>
-          <div class="color" style="background:#4fc3f7;"></div>
-          <div class="color" style="background:#29b6f6;"></div>
-          <div class="color" style="background:#03a9f4;"></div>
-          <div class="color" style="background:#039be5;"></div>
-          <div class="color" style="background:#0288d1;"></div>
-          <div class="color" style="background:#0277bd;"></div>
-          <div class="color" style="background:#01579b;"></div>
-        </div>
-        <div class="column">
-          <div class="color" style="background:#e0f7fa;"></div>
-          <div class="color" style="background:#b2ebf2;"></div>
-          <div class="color" style="background:#80deea;"></div>
-          <div class="color" style="background:#4dd0e1;"></div>
-          <div class="color" style="background:#26c6da;"></div>
-          <div class="color" style="background:#00bcd4;"></div>
-          <div class="color" style="background:#00acc1;"></div>
-          <div class="color" style="background:#0097a7;"></div>
-          <div class="color" style="background:#00838f;"></div>
-          <div class="color" style="background:#006064;"></div>
-        </div>
-        <div class="column">
-          <div class="color" style="background:#e0f2f1;"></div>
-          <div class="color" style="background:#b2dfdb;"></div>
-          <div class="color" style="background:#80cbc4;"></div>
-          <div class="color" style="background:#4db6ac;"></div>
-          <div class="color" style="background:#26a69a;"></div>
-          <div class="color" style="background:#009688;"></div>
-          <div class="color" style="background:#00897b;"></div>
-          <div class="color" style="background:#00796b;"></div>
-          <div class="color" style="background:#00695c;"></div>
-          <div class="color" style="background:#004d40;"></div>
-        </div>
-        <div class="column">
-          <div class="color" style="background:#e8f5e9;"></div>
-          <div class="color" style="background:#c8e6c9;"></div>
-          <div class="color" style="background:#a5d6a7;"></div>
-          <div class="color" style="background:#81c784;"></div>
-          <div class="color" style="background:#66bb6a;"></div>
-          <div class="color" style="background:#4caf50;"></div>
-          <div class="color" style="background:#43a047;"></div>
-          <div class="color" style="background:#388e3c;"></div>
-          <div class="color" style="background:#2e7d32;"></div>
-          <div class="color" style="background:#1b5e20;"></div>
-        </div>
-        <div class="column">
-          <div class="color" style="background:#f1f8e9;"></div>
-          <div class="color" style="background:#dcedc8;"></div>
-          <div class="color" style="background:#c5e1a5;"></div>
-          <div class="color" style="background:#aed581;"></div>
-          <div class="color" style="background:#9ccc65;"></div>
-          <div class="color" style="background:#8bc34a;"></div>
-          <div class="color" style="background:#7cb342;"></div>
-          <div class="color" style="background:#689f38;"></div>
-          <div class="color" style="background:#558b2f;"></div>
-          <div class="color" style="background:#33691e;"></div>
-        </div>
-        <div class="column">
-          <div class="color" style="background:#f9fbe7;"></div>
-          <div class="color" style="background:#f0f4c3;"></div>
-          <div class="color" style="background:#e6ee9c;"></div>
-          <div class="color" style="background:#dce775;"></div>
-          <div class="color" style="background:#d4e157;"></div>
-          <div class="color" style="background:#cddc39;"></div>
-          <div class="color" style="background:#c0ca33;"></div>
-          <div class="color" style="background:#afb42b;"></div>
-          <div class="color" style="background:#9e9d24;"></div>
-          <div class="color" style="background:#827717;"></div>
-        </div>
-        <div class="column">
-          <div class="color" style="background:#fffde7;"></div>
-          <div class="color" style="background:#fff9c4;"></div>
-          <div class="color" style="background:#fff59d;"></div>
-          <div class="color" style="background:#fff176;"></div>
-          <div class="color" style="background:#ffee58;"></div>
-          <div class="color" style="background:#ffeb3b;"></div>
-          <div class="color" style="background:#fdd835;"></div>
-          <div class="color" style="background:#fbc02d;"></div>
-          <div class="color" style="background:#f9a825;"></div>
-          <div class="color" style="background:#f57f17;"></div>
-        </div>
-        <div class="column">
-          <div class="color" style="background:#fff8e1;"></div>
-          <div class="color" style="background:#ffecb3;"></div>
-          <div class="color" style="background:#ffe082;"></div>
-          <div class="color" style="background:#ffd54f;"></div>
-          <div class="color" style="background:#ffca28;"></div>
-          <div class="color" style="background:#ffc107;"></div>
-          <div class="color" style="background:#ffb300;"></div>
-          <div class="color" style="background:#ffa000;"></div>
-          <div class="color" style="background:#ff8f00;"></div>
-          <div class="color" style="background:#ff6f00;"></div>
-        </div>
-        <div class="column">
-          <div class="color" style="background:#fff3e0;"></div>
-          <div class="color" style="background:#ffe0b2;"></div>
-          <div class="color" style="background:#ffcc80;"></div>
-          <div class="color" style="background:#ffb74d;"></div>
-          <div class="color" style="background:#ffa726;"></div>
-          <div class="color" style="background:#ff9800;"></div>
-          <div class="color" style="background:#fb8c00;"></div>
-          <div class="color" style="background:#f57c00;"></div>
-          <div class="color" style="background:#ef6c00;"></div>
-          <div class="color" style="background:#e65100;"></div>
-        </div>
-        <div class="column">
-          <div class="color" style="background:#fbe9e7;"></div>
-          <div class="color" style="background:#ffccbc;"></div>
-          <div class="color" style="background:#ffab91;"></div>
-          <div class="color" style="background:#ff8a65;"></div>
-          <div class="color" style="background:#ff7043;"></div>
-          <div class="color" style="background:#ff5722;"></div>
-          <div class="color" style="background:#f4511e;"></div>
-          <div class="color" style="background:#e64a19;"></div>
-          <div class="color" style="background:#d84315;"></div>
-          <div class="color" style="background:#bf360c;"></div>
-        </div>
-        <div class="column">
-          <div class="color" style="background:#efebe9;"></div>
-          <div class="color" style="background:#d7ccc8;"></div>
-          <div class="color" style="background:#bcaaa4;"></div>
-          <div class="color" style="background:#a1887f;"></div>
-          <div class="color" style="background:#8d6e63;"></div>
-          <div class="color" style="background:#795548;"></div>
-          <div class="color" style="background:#6d4c41;"></div>
-          <div class="color" style="background:#5d4037;"></div>
-          <div class="color" style="background:#4e342e;"></div>
-          <div class="color" style="background:#3e2723;"></div>
-        </div>
-        <div class="column">
-          <div class="color" style="background:#fafafa;"></div>
-          <div class="color" style="background:#f5f5f5;"></div>
-          <div class="color" style="background:#eeeeee;"></div>
-          <div class="color" style="background:#e0e0e0;"></div>
-          <div class="color" style="background:#bdbdbd;"></div>
-          <div class="color" style="background:#9e9e9e;"></div>
-          <div class="color" style="background:#757575;"></div>
-          <div class="color" style="background:#616161;"></div>
-          <div class="color" style="background:#424242;"></div>
-          <div class="color" style="background:#212121;"></div>
-        </div>
+      <div class="dropdown-content box" on-tap="_onTap" id="box">
+        <template is="dom-repeat" items="{{colorList}}">
+          <div class="color">{{item}}</div>
+        </template>
       </div>
     </paper-menu-button>
 
@@ -319,7 +99,50 @@ Custom property | Description | Default
         color: {
           type: String,
           observer: '_colorChanged'
+        },
+
+        /**
+         * The colors to be displayed. By default, these are the Material Design
+         * colors. This array is arranged by "generic color", so for example,
+         * all the reds (from light to dark), then the pinks, then the blues, etc.
+         * Depending on how many of these generic colors you have, you should
+         * update the `columnCount` property.
+         */
+        colorList: {
+          type: Array,
+          value: function() {
+            return ["#ffebee", "#ffcdd2", "#ef9a9a", "#e57373", "#ef5350", "#f44336", "#e53935", "#d32f2f", "#c62828", "#b71c1c", "#fce4ec", "#f8bbd0", "#f48fb1", "#f06292", "#ec407a", "#e91e63", "#d81b60", "#c2185b", "#ad1457", "#880e4f", "#f3e5f5", "#e1bee7", "#ce93d8", "#ba68c8", "#ab47bc", "#9c27b0", "#8e24aa", "#7b1fa2", "#6a1b9a", "#4a148c", "#ede7f6", "#d1c4e9", "#b39ddb", "#9575cd", "#7e57c2", "#673ab7", "#5e35b1", "#512da8", "#4527a0", "#311b92", "#e8eaf6", "#c5cae9", "#9fa8da", "#7986cb", "#5c6bc0", "#3f51b5", "#3949ab", "#303f9f", "#283593", "#1a237e", "#e3f2fd", "#bbdefb", "#90caf9", "#64b5f6", "#42a5f5", "#2196f3", "#1e88e5", "#1976d2", "#1565c0", "#0d47a1", "#e1f5fe", "#b3e5fc", "#81d4fa", "#4fc3f7", "#29b6f6", "#03a9f4", "#039be5", "#0288d1", "#0277bd", "#01579b", "#e0f7fa", "#b2ebf2", "#80deea", "#4dd0e1", "#26c6da", "#00bcd4", "#00acc1", "#0097a7", "#00838f", "#006064", "#e0f2f1", "#b2dfdb", "#80cbc4", "#4db6ac", "#26a69a", "#009688", "#00897b", "#00796b", "#00695c", "#004d40", "#e8f5e9", "#c8e6c9", "#a5d6a7", "#81c784", "#66bb6a", "#4caf50", "#43a047", "#388e3c", "#2e7d32", "#1b5e20", "#f1f8e9", "#dcedc8", "#c5e1a5", "#aed581", "#9ccc65", "#8bc34a", "#7cb342", "#689f38", "#558b2f", "#33691e", "#f9fbe7", "#f0f4c3", "#e6ee9c", "#dce775", "#d4e157", "#cddc39", "#c0ca33", "#afb42b", "#9e9d24", "#827717", "#fffde7", "#fff9c4", "#fff59d", "#fff176", "#ffee58", "#ffeb3b", "#fdd835", "#fbc02d", "#f9a825", "#f57f17", "#fff8e1", "#ffecb3", "#ffe082", "#ffd54f", "#ffca28", "#ffc107", "#ffb300", "#ffa000", "#ff8f00", "#ff6f00", "#fff3e0", "#ffe0b2", "#ffcc80", "#ffb74d", "#ffa726", "#ff9800", "#fb8c00", "#f57c00", "#ef6c00", "#e65100", "#fbe9e7", "#ffccbc", "#ffab91", "#ff8a65", "#ff7043", "#ff5722", "#f4511e", "#e64a19", "#d84315", "#bf360c", "#efebe9", "#d7ccc8", "#bcaaa4", "#a1887f", "#8d6e63", "#795548", "#6d4c41", "#5d4037", "#4e342e", "#3e2723", "#fafafa", "#f5f5f5", "#eeeeee", "#e0e0e0", "#bdbdbd", "#9e9e9e", "#757575", "#616161", "#424242", "#212121"]
+          }
+        },
+
+        /* The number of columns to display in the picker. This corresponds to
+         * the number of generic colors (i.e. not counting the light/dark) variants
+         * of a specific color) you are using in your `colorList`. For example,
+         * the Material Design palette has 18 colors */
+        columnCount: {
+          type: Number,
+          value: 18
         }
+      },
+
+      attached: function() {
+        var colorBoxes = this.$.box.querySelectorAll('.color');
+        for (var i = 0; i < colorBoxes.length; i++) {
+          colorBoxes[i].style.backgroundColor = colorBoxes[i].innerHTML;
+        }
+
+        // Fit the color boxes in columns. We first need to get the width of
+        // a color box (which is customizable), and then change the box's
+        // width to fit all the columns. This is a bit gross.
+
+        var widthOfAColor = getComputedStyle(this.$.box.querySelector('.color')).width.replace('px', '');
+        this.$.box.style.width = this.columnCount * widthOfAColor + 'px';
+
+        // Yay for vendor prefixes.
+        this.$.box.style.columnCount =
+            this.$.box.style.WebkitColumnCount =
+            this.$.box.style.MozColumnCount =
+            this.$.box.style.msColumnCount = this.columnCount;
       },
 
       _onTap: function(event) {
@@ -330,6 +153,7 @@ Custom property | Description | Default
       _colorChanged: function() {
         this.$.iconButton.style.color = this.color;
       }
+
     });
   </script>
 
