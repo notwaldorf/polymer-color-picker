@@ -1,0 +1,59 @@
+<!doctype html>
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<html>
+  <head>
+    <title>polymer-color-picker demo</title>
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../polymer-color-picker.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+  </head>
+  <style is="custom-style" include="demo-pages-shared-styles">
+  </style>
+  <body unresolved>
+    <div class="vertical-section-container centered">
+      <h3>A color picker of all the Material Design colours</h3>
+      <demo-snippet class="centered-demo">
+        <template>
+          <polymer-color-picker></polymer-color-picker>
+          <polymer-color-picker color="#E91E63"></polymer-color-picker>
+          <!-- Disable the ripple on the color picker button -->
+          <polymer-color-picker color="#2196F3" noink></polymer-color-picker>
+        </template>
+      </demo-snippet>
+
+      <h3>The palette used by the color picker can be configured</h3>
+      <demo-snippet class="centered-demo">
+        <template>
+          <polymer-color-picker column-count=5 color-list='["#65a5f2", "#2b63ba", "#83be54", "#3b8638", "#f0d551", "#d7be48", "#e5943c", "#cf712e", "#a96ddb", "#6f4196"]' ></polymer-color-picker>
+        </template>
+      </demo-snippet>
+
+      <h3>The picker can be styled using custom properties</h3>
+      <demo-snippet class="centered-demo">
+        <template>
+          <style is="custom-style">
+            polymer-color-picker.fancy {
+              --polymer-color-picker-color-size: 10px;
+              --polymer-color-picker-icon-size: 60px;
+            }
+          </style>
+          <polymer-color-picker class="fancy"></polymer-color-picker>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>
