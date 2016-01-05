@@ -77,7 +77,8 @@ Custom property | Description | Default
       <paper-icon-button
           id="iconButton"
           icon="editor:format-color-fill"
-          class="dropdown-trigger" alt="color picker">
+          class="dropdown-trigger" alt="color picker"
+          noink="[[noink]]">
       </paper-icon-button>
       <div class="dropdown-content box" on-tap="_onTap" id="box">
         <template is="dom-repeat" items="{{colorList}}">
@@ -128,7 +129,15 @@ Custom property | Description | Default
         columnCount: {
           type: Number,
           value: 18
-        }
+        },
+
+        /**
+         * If true, the color picker button will not produce a ripple effect when interacted
+         * with via the pointer.
+         */
+        noink: {
+          type: Boolean
+        },
       },
 
       attached: function() {
