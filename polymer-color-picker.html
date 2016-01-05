@@ -49,6 +49,16 @@ Custom property | Description | Default
       .box {
         font-size: 0;
         overflow: hidden;
+        -ms-flex-direction: column;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        overflow:hidden;
       }
 
       .color {
@@ -58,20 +68,13 @@ Custom property | Description | Default
         display: inline-block;
         padding: 0;
         margin: 0;
-        padding: 2px;
         cursor: pointer;
       }
 
       .color:hover {
-        border: 2px solid rgba(255, 255, 255, 0.7);
-        padding: 0px;
-      }
-      
-      /* Transforms and columnCounts are borked in Chrome atm */
-      /*.color:hover {
         background: currentColor;
         transform: scale(1.3, 1.3);
-      }*/
+      }
 
       paper-icon-button {
         width: var(--polymer-color-picker-icon-size, 40px);
@@ -157,14 +160,10 @@ Custom property | Description | Default
         // a color box (which is customizable), and then change the box's
         // width to fit all the columns. This is a bit gross.
 
-        var widthOfAColor = getComputedStyle(this.$.box.querySelector('.color')).width.replace('px', '');
-        this.$.box.style.width = this.columnCount * widthOfAColor + 'px';
-
-        // Yay for vendor prefixes.
-        this.$.box.style.columnCount =
-            this.$.box.style.WebkitColumnCount =
-            this.$.box.style.MozColumnCount =
-            this.$.box.style.msColumnCount = this.columnCount;
+        var sizeOfAColor = getComputedStyle(this.$.box.querySelector('.color')).width.replace('px', '');
+        var rowCount = colorBoxes.length / this.columnCount;
+        this.$.box.style.height = rowCount * sizeOfAColor + 'px';
+        this.$.box.style.width = this.columnCount * sizeOfAColor + 'px';
       },
 
       _onTap: function(event) {
