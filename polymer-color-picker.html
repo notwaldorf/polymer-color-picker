@@ -52,14 +52,21 @@ Custom property | Description | Default
       }
 
       .color {
+        box-sizing: border-box;
         width: var(--polymer-color-picker-color-size, 20px);
         height: var(--polymer-color-picker-color-size, 20px);
         display: inline-block;
         padding: 0;
         margin: 0;
+        padding: 2px;
         cursor: pointer;
       }
 
+      .color:hover {
+        border: 2px solid rgba(255, 255, 255, 0.7);
+        padding: 0px;
+      }
+      
       /* Transforms and columnCounts are borked in Chrome atm */
       /*.color:hover {
         background: currentColor;
