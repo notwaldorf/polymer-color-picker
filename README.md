@@ -1,3 +1,6 @@
+#🚨🚨🚨 This repo is unmaintained!
+Hai! Thanks for stopping by! This has moved to its permanent home, as a real citizen of PolymerElements-landia. Go check it out [there](https://github.com/polymerelements/paper-swatch-picker), since this is unmaintained!
+
 # polymer-color-picker
 
 This is a very simple Polymer color-picker that will allow you to choose one
