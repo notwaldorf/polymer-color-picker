@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "A Polymer color picker element using all the Material Design colours",
   "authors": [
-    "The Polymer Authors"
+    "Monica Dinculescu <noms@google.com>"
   ],
   "keywords": [
     "web-components",
@@ -19,7 +19,6 @@
     "type": "git",
     "url": "git://github.com/notwaldorf/polymer-color-picker.git"
   },
-  "license": "http://polymer.github.io/LICENSE.txt",
   "homepage": "https://github.com/notwaldorf/polymer-color-picker",
   "ignore": [],
   "dependencies": {
